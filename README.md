@@ -138,6 +138,7 @@ class People {
 ```
 > Omettre Private, Public ou Protected permet d'avoir un Package-private, une protection entre Private et Protected qui donne accé aux méthode uniquement à la classe ou au package.  
 
+
 ## Ajout de la classe Adapter "PeopleAdapter" :
 ```Java
 ...
