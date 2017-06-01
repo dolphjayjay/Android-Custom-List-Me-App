@@ -32,25 +32,26 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 - Sur l'écran "Configure your new project" :
     - **Application name** : Nom de l'application (il sera aussi affiché sur le Téléphone).
     - **Compagny domain** : Identifiant de l'application (servira sur le compte Google Play Store, on met en général le nom de domain de l'éditeur, ex : idemobi.com).
-    - **Project location** : Choisissez un dossier sur votre ordinateur celui-ci servira a stocker le projet.
-- Cliquez sur le bouton "Next"
+    - **Project location** : Choisir un dossier sur votre ordinateur celui-ci servira a stocker le projet.
+- Cliquer sur le bouton "Next"
 - Sur l'écran "Select the form factors your app will run on" :
     - **Phone and Tablet** : Définir l'API min. (généralement on défini la valeur sur l'API 16, on pourra la modifier par la suite suivant les besoins).
-- Cliquez sur le bouton "Next"
+- Cliquer sur le bouton "Next"
 - Sur l'écran "Add an Activity to Mobile" :
     - Choisir **Empty Activity**
-- Cliquez sur le bouton "Next"
+- Cliquer sur le bouton "Next"
 - Sur l'écran "Customize the Activity" :
     - **Activity Name** : Modifier ou laisser le nom de l'activity (Class) choisie par default.
     - **Layout Name** : Modifier ou laisser le nom du layout (interface XML) choisie par default.
-- Cliquez sur le bouton "Finish".
+- Cliquer sur le bouton "Finish".
 
 ## Création de la ListView (XML) :
 - A partir de l'onglet "Project" (situé sur la gauche d'Android studio)
-- S'assurer que l'on soit bien en vue "Android" (Menu déroulant au dessus de l'arboressance du projet)
+- S'assurer que l'on soit bien en vue "Android" (Menu déroulant au dessus de l'arborescence du projet)
 - Puis : app > res > layout : double click sur le fichier "activity_main.xml"
 - S'assurer que l'on soit bien en vue "Text" (bouton situé en bas de l'écran)
 - Remplacer le contenu avec :
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
@@ -68,7 +69,8 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 
 ## Ajout du "ArrayAdapter" :
 - Depuis : app > java > "com.domain.app" : double click sur le fichier "MainActivity"
-- A l'interrieur de la méthode suivante ajouter l'adaptateur :
+- A l'intérieur de la méthode suivante ajouter l'adaptateur :
+
 ```Java
     private ListView _ListView;
 
@@ -84,6 +86,7 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
     }
 ```
 - Ajouter la méthode de génération de donnée :
+
 ```Java
     private List<People> randomPeople() {
         List<People> tPeople = new ArrayList<>();
@@ -98,6 +101,7 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 ```
 
 ## Ajout de la classe "People" :
+
 ```Java
 ...
 class People {
@@ -136,10 +140,12 @@ class People {
     }
 }
 ```
-> Omettre Private, Public ou Protected permet d'avoir un Package-private, une protection entre Private et Protected qui donne accé aux méthode uniquement à la classe ou au package.  
+
+> Omettre Private, Public ou Protected permet d'avoir un Package-private, une protection entre Private et Protected qui donne accés aux méthodes uniquement de la classe ou du package.
 
 
 ## Ajout de la classe Adapter "PeopleAdapter" :
+
 ```Java
 ...
 class PeopleAdapter extends ArrayAdapter<People> {
@@ -181,20 +187,42 @@ class PeopleAdapter extends ArrayAdapter<People> {
 ```
 
 # Travaux Dirigés
+
+#TD n°1
+
 - Lancer l'application sur un simulateur : Run > Run...
-    - Cliquez sur le bouton "Create New Virtual Device"
+    - Cliquer sur le bouton "Create New Virtual Device"
     - Catégorie : **Phone**
     - Name : **Nexus 5X**
-    - Cliquez sur le bouton "Next"
-    - Sur l'écran "System Image" onglet "Recommended" Cliquez sur "Download"
-    - Attendez la fin de l'installation puis cliquez sur le bouton "Next"
+    - Cliquer sur le bouton "Next"
+    - Sur l'écran "System Image" onglet "Recommended" Cliquer sur "Download"
+    - Attender la fin de l'installation puis cliquer sur le bouton "Next"
     - Sur l'écran "Android Virtual Device (AVD)" :
-        - **AVD Name** : Modifier ou laisser le nom défini pour l'emulateur.
+        - **AVD Name** : Modifier ou laisser le nom défini pour l'émulateur.
         - **Startup orientation** : Choisir une orientation.
-    - Cliquez sur le bouton "Finish".
-    - Cliquez sur le lien  "Install Haxm" et suivez la procédure.
+    - Cliquer sur le bouton "Finish".
+    - Cliquer sur le lien  "Install Haxm" et suivre la procédure.
     
-- Lancer l'application et constatez l'affichage des prénoms dans une ListView
+- Lancer l'application et constater l'affichage des prénoms dans une ListView
+
+## TD n°2
+
+- Ajouter un bouton pour recréer une liste à la volée
+	- Ajouter une méthode de connexion au bouton
+	- Ajouter une méthode de création d'une liste aléatoire
+	
+## TD n°3 depuis le TD n°2
+
+- Ajouter un bouton pour ajouter une liste à la volée à la liste actuelle
+	- Ajouter une méthode de connexion au bouton
+	- Ajouter une méthode d'ajouter une liste aléatoire
+	
+## TD n°4 depuis le TD n°3
+
+- Ajouter deux boutons pour trier la liste actuelle
+	- Ajouter deux méthodes de connexion au bouton
+	- Ajouter une méthode de tri alphabétique de la liste actuelle
+	- Ajouter une méthode de tri colorimétrique de la liste actuelle
 
 ---
 
