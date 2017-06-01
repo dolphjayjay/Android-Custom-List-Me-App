@@ -223,6 +223,12 @@ class PeopleAdapter extends ArrayAdapter<People> {
 	- Ajouter deux méthodes de connexion au bouton
 	- Ajouter une méthode de tri alphabétique de la liste actuelle
 	- Ajouter une méthode de tri colorimétrique de la liste actuelle
+	
+## TD n°5
+
+- Lors d'un clic sur une ligne
+	- on modifie la couleur
+	- on actualise la liste
 
 ---
 
