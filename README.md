@@ -41,8 +41,8 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
     - Choisir **Empty Activity**
 - Cliquer sur le bouton "Next"
 - Sur l'écran "Customize the Activity" :
-    - **Activity Name** : Modifier ou laisser le nom de l'activity (Class) choisie par default.
-    - **Layout Name** : Modifier ou laisser le nom du layout (interface XML) choisie par default.
+    - **Activity Name** : Modifier ou laisser le nom de l'activity (Class) choisie par défaut.
+    - **Layout Name** : Modifier ou laisser le nom du layout (interface XML) choisie par défaut.
 - Cliquer sur le bouton "Finish".
 
 ## Création de la ListView (XML) :
@@ -51,7 +51,6 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 - Puis : app > res > layout : double click sur le fichier "activity_main.xml"
 - S'assurer que l'on soit bien en vue "Text" (bouton situé en bas de l'écran)
 - Remplacer le contenu avec :
-
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
@@ -70,7 +69,6 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 ## Ajout du "ArrayAdapter" :
 - Depuis : app > java > "com.domain.app" : double click sur le fichier "MainActivity"
 - A l'intérieur de la méthode suivante ajouter l'adaptateur :
-
 ```Java
     private ListView _ListView;
 
@@ -86,7 +84,6 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
     }
 ```
 - Ajouter la méthode de génération de donnée :
-
 ```Java
     private List<People> randomPeople() {
         List<People> tPeople = new ArrayList<>();
@@ -101,7 +98,6 @@ Custom-List-Me<p align="center"><img src="https://raw.githubusercontent.com/Heph
 ```
 
 ## Ajout de la classe "People" :
-
 ```Java
 ...
 class People {
@@ -143,9 +139,7 @@ class People {
 
 > Omettre Private, Public ou Protected permet d'avoir un Package-private, une protection entre Private et Protected qui donne accés aux méthodes uniquement de la classe ou du package.
 
-
 ## Ajout de la classe Adapter "PeopleAdapter" :
-
 ```Java
 ...
 class PeopleAdapter extends ArrayAdapter<People> {
@@ -186,9 +180,47 @@ class PeopleAdapter extends ArrayAdapter<People> {
 }
 ```
 
+
+## Ajout du XML "row" :
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        tools:background="#AAA" />
+
+    <TextView
+        android:id="@+id/pseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:layout_alignTop="@+id/avatar"
+        android:textStyle="bold"
+        tools:text="Pseudo" />
+
+    <TextView android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignLeft="@+id/pseudo"
+        android:layout_below="@+id/pseudo"
+        tools:text="Texte de mon tweet" />
+
+</RelativeLayout>
+```
+
 # Travaux Dirigés
 
-#TD n°1
+# TD n°1
 
 - Lancer l'application sur un simulateur : Run > Run...
     - Cliquer sur le bouton "Create New Virtual Device"
